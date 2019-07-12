@@ -23,10 +23,23 @@
               placeholder="Start Date"
               class="form-control"
               [(ngModel)]="startDate" name="startDate" id="startDate"
-              bsDatepicker>
+              bsDaterangepicker>
+    </div>
+
+    <div class="form-group">
+      <label for="startTime">Start Time</label>
+      <timepicker [(ngModel)]="startTime" name="startTime"></timepicker>
+    </div>
+
+    <div class="form-group">
+      <rating [(ngModel)]="userRating" [max]="maxRating" [readonly]="isReadonly"
+        name="userRating" id="userRating"
+        [titles]="['one', 'two', 'three']"></rating>
     </div>
 
     Start Date: {{ startDate }}
+    Start Time: {{ startTime }}
+    Start Rating: {{ userRating }}
 
     <button type="button" class="btn btn-primary" name="singleModel"
       [(ngModel)]="singleModel" btnCheckbox
@@ -45,11 +58,11 @@
     <div class="form-group">
 
       <div class="btn-group">
-        <label class="btn btn-primary" name="interfaceStyle" [(ngModel)]="userSettings.interfaceStyle"
+        <label class="btn btn-light" name="interfaceStyle" [(ngModel)]="userSettings.interfaceStyle"
                 btnRadio="Light" tabindex="0" role="button">Light</label>
         <label class="btn btn-primary" name="interfaceStyle" [(ngModel)]="userSettings.interfaceStyle"
                 btnRadio="Medium" tabindex="0" role="button">Medium</label>
-        <label class="btn btn-primary" name="interfaceStyle" [(ngModel)]="userSettings.interfaceStyle"
+        <label class="btn btn-dark" name="interfaceStyle" [(ngModel)]="userSettings.interfaceStyle"
                 btnRadio="Dark" tabindex="0" role="button">Dark</label>
       </div>
 
