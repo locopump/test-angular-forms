@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserSettings } from '../data/user-settings';
 import { NgForm, NgModel } from '@angular/forms';
+import { DataService } from '../data/data.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'taf-user-settings-form',
@@ -17,19 +19,42 @@ export class UserSettingsFormComponent implements OnInit {
     notes: 'This is a little note for fill the blank spaces.'
   };
 
-  userSettings: UserSettings = { ...this.originalUserSettings };
+  singleModel = "On";
+  startDate: Date;
 
-  constructor() { }
+  userSettings: UserSettings = { ...this.originalUserSettings };
+  postError = false;
+  postErrorMessage = '';
+  // subscriptionTypes = ['Monthly', 'Annual', 'Lifetime'];
+  subscriptionTypes: Observable<string[]>;
+
+  constructor(private dataservice: DataService) { }
 
   ngOnInit() {
+    this.subscriptionTypes = this.dataservice.getSubscriptionTypes();
+    this.startDate = new Date();
+  }
+
+  onHttpError(errorResponse: any) {
+    console.log('error: ', errorResponse);
+    this.postError = true;
+    this.postErrorMessage = errorResponse.error.errorMessage;
   }
 
   onSubmit(form: NgForm) {
     console.log('in onSubmit: ', form.valid);
+    this.dataservice.postUserSettingsForm(this.userSettings).subscribe(
+      result => console.log('success: ', result),
+      error => this.onHttpError(error)
+    );
   }
 
   onBlur(field: NgModel) {
     console.log('in onBlur: ', field.valid);
+  }
+
+  onFocus(field: NgModel) {
+    console.log('in onFocus: ', field.touched);
   }
 
 }
