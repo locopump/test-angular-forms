@@ -15,8 +15,8 @@ export class DataService {
   }
 
   // postUserSettingsForm (userSettings: UserSettings) : Observable<UserSettings> {
-  postUserSettingsForm (userSettings: UserSettings) : Observable<any> {
-    return this.http.post('https://putsreq.com/I5ongCLrtVOxqpg9AzjU', userSettings)
+  postUserSettingsForm(userSettings: UserSettings): Observable<any> {
+    return this.http.post('https://putsreq.com/I5ongCLrtVOxqpg9AzjU', userSettings);
     // return of(userSettings);
   }
 }

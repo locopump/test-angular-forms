@@ -19,11 +19,11 @@ export class UserSettingsFormComponent implements OnInit {
     notes: 'This is a little note for fill the blank spaces.'
   };
 
-  singleModel = "On";
+  singleModel = 'On';
   startDate: Date;
   startTime: Date;
-  userRating: number = 0;
-  maxRating: number = 10;
+  userRating = 0;
+  maxRating = 10;
 
   userSettings: UserSettings = { ...this.originalUserSettings };
   postError = false;
