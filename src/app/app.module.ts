@@ -11,11 +11,15 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TimepickerModule } from 'ngx-bootstrap/timepicker';
 import { RatingModule } from 'ngx-bootstrap/rating';
+import { DashboardComponent } from './shared/components/dashboard/dashboard.component';
+import { CustomerComponent } from './shared/components/customer/customer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserSettingsFormComponent
+    UserSettingsFormComponent,
+    DashboardComponent,
+    CustomerComponent
   ],
   imports: [
     BrowserModule,
