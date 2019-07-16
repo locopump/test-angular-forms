@@ -1,2 +1,13 @@
-<taf-user-settings-form></taf-user-settings-form>
+<div style="text-align: center;">
+  <h1>Welcome to {{ title }}</h1>
+</div>
+<nav>
+  <ul>
+    <li><a href="" [routerLink]="['/dashboard']">Dashboard</a></li>
+    <li><a href="" [routerLink]="['/customer']">Customer</a></li>
+    <li><a href="" [routerLink]="['/user']">User Settings</a></li>
+    <li><a href="" [routerLink]="['/admin']">Administrator</a></li>
+    <li><a href="" [routerLink]="['/admin/blast']">Email Blast</a></li>
+  </ul>
+</nav>
 <router-outlet></router-outlet>

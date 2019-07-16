@@ -13,6 +13,7 @@ import { TimepickerModule } from 'ngx-bootstrap/timepicker';
 import { RatingModule } from 'ngx-bootstrap/rating';
 import { DashboardComponent } from './shared/components/dashboard/dashboard.component';
 import { CustomerComponent } from './shared/components/customer/customer.component';
+import { AdminModule } from './modules/admin/admin.module';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { CustomerComponent } from './shared/components/customer/customer.compone
     BsDatepickerModule.forRoot(),
     BrowserAnimationsModule,
     TimepickerModule.forRoot(),
-    RatingModule.forRoot()
+    RatingModule.forRoot(),
+    AdminModule
   ],
   providers: [],
   bootstrap: [AppComponent]
